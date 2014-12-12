@@ -11,7 +11,7 @@ stainless! top_level {
         assert_eq!(foo, 4);
     }
 
-    describe nested {
+    describe "nested" {
         before_each {
             assert_eq!(foo, 1);
             foo += 1;

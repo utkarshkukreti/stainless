@@ -7,7 +7,7 @@ stainless! top_level {
         assert_eq!(1u, 1u);
     }
 
-    describe nested {
+    describe "nested" {
         it "should be more specific" {
             assert_eq!(2u, 2u);
         }

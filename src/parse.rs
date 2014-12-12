@@ -65,22 +65,22 @@ const BENCH:       &'static str = "bench";
 impl<'a, 'b> Parse<(codemap::Span, &'a mut base::ExtCtxt<'b>, Option<ast::Ident>)> for DescribeState {
     fn parse(parser: &mut Parser,
              (sp, cx, name): (codemap::Span, &'a mut base::ExtCtxt, Option<ast::Ident>)) -> DescribeState {
-        let mut state = DescribeState {
-            name: None, before: None, after: None,
-            before_each: None, after_each: None, subblocks: vec![]
-        };
-
-        state.name = match name {
+        let name = match name {
             // Top-level describe block.
-            Some(name) => Some(name),
+            Some(name) => name.as_str().to_string(),
             // Nested describe block.
             None => {
                 // Get the name of this describe block
-                let name = parser.parse_ident();
+                let (name, _) = parser.parse_str();
                 // Move past the opening {
                 try(parser, token::OpenDelim(token::Brace), "{ after the name of a describe! block");
-                Some(name)
+                name.get().to_string()
             }
+        };
+
+        let mut state = DescribeState {
+            name: name, before: None, after: None,
+            before_each: None, after_each: None, subblocks: vec![]
         };
 
         // Now parse all tests and subsections:

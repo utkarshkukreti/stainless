@@ -147,7 +147,7 @@ impl<'a> Generate<Option<&'a DescribeState>> for DescribeState {
     fn generate(mut self, sp: codemap::Span, cx: &mut base::ExtCtxt,
                 state: Option<&'a DescribeState>) -> P<ast::Item> {
         // Get the name of this mod.
-        let name = self.name.clone().unwrap();
+        let name = cx.ident_of(self.name.as_slice());
 
         if let Some(state) = state {
             if let Some(ref parent) = state.before_each {

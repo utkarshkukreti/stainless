@@ -34,7 +34,7 @@ use bench::Bench;
 /// Defines the state of a `describe!` macro as it is parsing.
 #[deriving(Clone)]
 pub struct DescribeState {
-    pub name: Option<ast::Ident>,
+    pub name: String,
     pub before: Option<P<ast::Block>>,
     pub after: Option<P<ast::Block>>,
     pub before_each: Option<P<ast::Block>>,
