@@ -8,7 +8,7 @@ mod test {
         if x != y { panic!("Not equal.") }
     }
 
-    describe! helpers {
+    stainless! helpers {
         it "should be able to use helpers" {
             test_helper(7u, 7);
         }

@@ -3,7 +3,7 @@
 extern crate stainless;
 extern crate test;
 
-describe! benchmarking {
+stainless! benchmarking {
     bench "should benchmark" (bencher) {
             bencher.iter(|| 2u * 2)
     }

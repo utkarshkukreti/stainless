@@ -2,7 +2,7 @@
 #[phase(plugin, link)]
 extern crate stainless;
 
-describe! top_level {
+stainless! top_level {
     before_each {
         let mut foo = 1u;
     }

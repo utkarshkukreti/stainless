@@ -2,7 +2,7 @@
 #[phase(plugin, link)]
 extern crate stainless;
 
-describe! failing {
+stainless! failing {
     failing "should fail" {
         panic!("should still pass");
     }

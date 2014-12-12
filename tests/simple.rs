@@ -2,7 +2,7 @@
 #[phase(plugin, link)]
 extern crate stainless;
 
-describe! addition {
+stainless! addition {
     before_each {
         let x = 5u; let y = 6u;
     }

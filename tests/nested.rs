@@ -2,7 +2,7 @@
 #[phase(plugin, link)]
 extern crate stainless;
 
-describe! top_level {
+stainless! top_level {
     it "should be less specific" {
         assert_eq!(1u, 1u);
     }
