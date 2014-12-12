@@ -130,9 +130,6 @@ impl<'a, 'b> Parse<(codemap::Span, &'a mut base::ExtCtxt<'b>, Option<ast::Ident>
 
                 // Nested `describe!` block.
                 DESCRIBE => {
-                    // Skip over the ! in describe!
-                    try(parser, token::Not, "!");
-
                     // Parse this subblock, generate new item.
                     state.subblocks.push(SubBlock::Describe(Parse::parse(parser, (sp, &mut*cx, None))));
 
